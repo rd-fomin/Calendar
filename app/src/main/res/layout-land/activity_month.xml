@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MonthActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="270sp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toTopOf="@+id/weekDays"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/eventLayout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TableRow
+        android:id="@+id/weekDays"
+        android:layout_width="270sp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borderbottomwhite"
+        app:layout_constraintBottom_toTopOf="@+id/monthGrid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/eventLayout"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <GridView
+        android:id="@+id/monthGrid"
+        android:layout_width="270sp"
+        android:layout_height="0dp"
+        android:horizontalSpacing="10sp"
+        android:isScrollContainer="false"
+        android:numColumns="7"
+        android:padding="5sp"
+        android:verticalSpacing="5sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/eventLayout"
+        app:layout_constraintTop_toBottomOf="@+id/weekDays">
+
+    </GridView>
+
+    <FrameLayout
+        android:id="@+id/eventLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/eventsView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/borderrightwhite"
+            android:scrollbars="vertical"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            tools:itemCount="5"
+            tools:listitem="@layout/event" />
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>
